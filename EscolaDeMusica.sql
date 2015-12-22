@@ -1,5 +1,3 @@
-drop database EscolaDeMusica;
-
 create database EscolaDeMusica;
 
 create table orquestra (
@@ -31,12 +29,11 @@ nacionalidade varchar (30),
 datadenascimento date,
 PRIMARY KEY(codmusico),
 FOREIGN KEY(codfuncao)
-references funcoes (codfuncao),
+	references funcoes (codfuncao),
 FOREIGN KEY(codorquestra)
-references orquestra (codorquestra)
+	references orquestra (codorquestra)
 );
 
-drop table funcoes;
 create table funcoes (
 codfuncao int auto_increment,
 codinstrumento int, 
@@ -50,6 +47,22 @@ codinstrumento int auto_increment,
 nome varchar(40),
 PRIMARY KEY(codinstrumento)
 ); 
+
+create table numero(
+	codNumero int primary key,
+    numeroCelular varchar(15),
+    numeroFixo varchar(15)
+);
+
+create table endereco(
+	codEndereco int primary key,
+    pais varchar(15),
+    estado varchar(15),
+    cidade varchar(15),
+    bairro varchar(15),
+    cep varchar(15),
+    numero int
+);
 
 
 
